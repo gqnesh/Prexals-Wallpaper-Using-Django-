@@ -1,0 +1,33 @@
+{% extends 'home/base.html' %}
+    
+    {% block title %}
+        <title>Home</title>
+    {% endblock title %}
+
+    {% block content %}    
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-3 border-end border-dark pe-5">
+                    <ul class="list-group mt-4">
+                        {% for data in category %}
+                        <li class="list-group-item border-success btn-outline-dark text-center text-primary rounded" aria-current="true"><a href="/category/{{data.id}}/" class="text-decoration-none">{{data.title}}</a></li>
+                        <br><br>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="col-9">
+                    {% for data in images %}
+                        <div class="card mb-3">
+                            <img src="{{data.img.url}}" class="card-img-top" alt="No Image" height="450px" width="250px">
+                            <div class="card-body">
+                            <h5 class="card-title">{{data.title}}</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock content %}
